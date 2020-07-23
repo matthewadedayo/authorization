@@ -1,0 +1,25 @@
+INSERT INTO oauth_client_details (client_id, client_secret, web_server_redirect_uri, scope, access_token_validity, refresh_token_validity, resource_ids, authorized_grant_types, additional_information) VALUES ('mobile', '{bcrypt}$2a$10$gPhlXZfms0EpNHX0.HHptOhoFD1AoxSr/yUIdTqA8vtjeP4zi0DDu', 'http://localhost:8080/code', 'READ,WRITE', '3600', '10000', 'inventory,payment', 'authorization_code,password,refresh_token,implicit', '{}');
+
+ INSERT INTO PRIVILEGE (NAME) VALUES
+ ('create'),
+ ('read'),
+ ('update'),
+ ('delete');
+
+ INSERT INTO role (NAME) VALUES
+		('admin'),('user');
+
+ INSERT INTO PRIVILEGE_ROLE (PRIVILEGE_ID, ROLE_ID) VALUES
+     (1,1), /*create-> admin */
+     (2,1), /* read admin */
+     (3,1), /* update admin */
+     (4,1), /* delete admin */
+     (2,2),  /* read */
+     (3,2);  /* update */
+insert into user (userId, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, passwordResetCode) VALUES ('1', 'adedayo','{bcrypt}$2a$10$hmiCu06wmM9Kx5kJQhEcV.lbCUtzXatJCNK.1Ppj0vZykOMGAySxq', 'anifannu@yahoo.com', '1', '1', '1', '0','');
+ insert into  user (userId, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, passwordResetCode) VALUES ('2', 'dayo', '{bcrypt}$2a$10$hmiCu06wmM9Kx5kJQhEcV.lbCUtzXatJCNK.1Ppj0vZykOMGAySxq','dayo@yahoo.com', '1', '1', '1', '0', '');
+
+INSERT INTO ROLE_USER (ROLE_ID, USER_ID)
+    VALUES
+    (1, 1) /* adedayo-admin */,
+    (2, 2) /* dayo-user */ ;
